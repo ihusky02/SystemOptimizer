@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.IO;
+using System.Management;
 
 namespace SystemOptimizer
 {
@@ -50,6 +52,16 @@ namespace SystemOptimizer
             RunCommandSilent(cmd);
             System.Windows.MessageBox.Show("Komenda usunięcia folderu Windows.old wysłana.");
         }
+
+            private void CleanTemp_Click(object sender, RoutedEventArgs e)
+        {
+            // Czyścimy 3 lokalizacje: Temp w AppData użytkownika, Temp w Windowsie oraz folder Prefetch
+            string cmd = @"del /s /q /f %temp%\* && del /s /q /f %windir%\Temp\* && del /s /q /f %windir%\Prefetch\*";
+            RunCommandSilent(cmd);
+            System.Windows.MessageBox.Show("Zadanie usuwania plików z folderów Temp i Prefetch zostało wysłane w tle.");
+        }
+
+         
 
         private void DeleteStubbornFolder_Click(object sender, RoutedEventArgs e)
         {

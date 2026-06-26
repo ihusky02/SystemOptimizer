@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SystemOptimizer.ToolsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Narzędzia Czyszczenia" Height="380" Width="450"
+        Title="Narzędzia Czyszczenia" Height="454" Width="604"
         WindowStartupLocation="CenterScreen"
         Background="#202020" Foreground="White" FontFamily="Segoe UI Variable">
     <Window.Resources>
@@ -42,12 +42,14 @@
             <Button Content="Czyszczenie po aktualizacjach sterowników" Click="CleanDrivers_Click"/>
             <Button Content="Usuń folder Windows.old" Click="CleanWindowsOld_Click"/>
 
+            <Button Content="Czyszczenie folderów tymczasowych" Click="CleanTemp_Click"/>
+
             <Button Content="Usuń oporny folder (Wymuś uprawnienia)" 
-                    Click="DeleteStubbornFolder_Click" 
-                    Background="#A80000" 
-                    BorderBrush="#C00000"
-                    FontWeight="SemiBold"
-                    Margin="0,10,0,0"/>
+            Click="DeleteStubbornFolder_Click" 
+            Background="#A80000" 
+            BorderBrush="#C00000"
+            FontWeight="SemiBold"
+            Margin="0,10,0,0"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SystemOptimizer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Monitor Zasobów" Height="300" Width="400"
+        Title="Monitor Zasobów" Height="360" Width="498"
         WindowStartupLocation="CenterScreen"
         Background="#202020" Foreground="White" FontFamily="Segoe UI Variable">
     <Window.Resources>
@@ -39,8 +39,25 @@
             <TextBlock Text="Dostępny RAM:" FontSize="16" Foreground="#CCCCCC"/>
             <ProgressBar x:Name="RamProgressBar" Height="20" Minimum="0" Maximum="16000" Margin="0,5,0,15" Foreground="#107C10"/>
             <TextBlock x:Name="RamText" Text="0 MB" HorizontalAlignment="Right" Margin="0,-35,5,15" Foreground="White"/>
+
+            <TextBlock Text="Wolne miejsce (Dysk C:):" FontSize="16" Foreground="#CCCCCC"/>
+            <ProgressBar x:Name="DiskProgressBar" Height="20" Minimum="0" Maximum="100" Margin="0,5,0,15" Foreground="#8B008B"/>
+            <TextBlock x:Name="DiskText" Text="0 GB" HorizontalAlignment="Right" Margin="0,-35,5,15" Foreground="White"/>
         </StackPanel>
 
-        <Button Grid.Row="2" Content="Otwórz Narzędzia Oczyszczania" Height="40" FontSize="14" Click="OpenTools_Click"/>
+        <Grid Grid.Row="2" Margin="0,15,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Otwórz Narzędzia Oczyszczania" Height="40" FontSize="14" Click="OpenTools_Click" Margin="0,0,10,0"/>
+
+            <Menu Grid.Column="1" Background="#333333" VerticalAlignment="Stretch" HorizontalAlignment="Right">
+                <MenuItem Header="Opcje dysku ▼" Foreground="White" FontSize="14" Height="40" Padding="10,0">
+                    <MenuItem Header="Pokaż szczegółowe informacje o dysku" Click="ShowDiskInfo_Click" Foreground="Black" FontSize="13" Padding="5"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
     </Grid>
 </Window>
